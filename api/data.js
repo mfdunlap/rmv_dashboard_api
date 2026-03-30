@@ -3,9 +3,19 @@ let cachtTime = 0;
 
 const CACHE_TTL = 60 * 1000; // 60 seconds
 
-/*module.exports = async function handler(req, res) {
+module.exports = async function handler(req, res) {
   try {
-    const now = Date.now();
+    console.log("ENV:", process.env.RMV_API_URL);
+
+    const response = await fetch(process.env.RMV_API_URL);
+
+    console.log("STATUS:", response.status);
+
+    const text = await response.text();
+    console.log("RAW RESPONSE:", text);
+
+    res.status(200).json({ ok: true });
+    /*const now = Date.now();
 
     // Return cached data if fresh
     if (cache && now - cacheTime < CACHE_TTL) {
@@ -33,12 +43,8 @@ const CACHE_TTL = 60 * 1000; // 60 seconds
     res.status(200).json({
       source: "live",
       data
-    });
+    });*/
   } catch (err) {
     res.status(500).json({ error: "Failed to fetch data" });
   }  
-} */
-
-module.exports = function handler(req, res) {
-  res.status(200).json({ ok: true });
 }
