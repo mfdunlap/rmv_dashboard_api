@@ -39,6 +39,6 @@ const CACHE_TTL = 60 * 1000; // 60 seconds
   }  
 } */
 
-module.exports default function handler(req, res) {
+module.exports function handler(req, res) {
   res.status(200).json({ ok: true });
 }
