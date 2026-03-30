@@ -8,13 +8,12 @@ module.exports = async function handler(req, res) {
     console.log("ENV:", process.env.RMV_API_URL);
 
     const response = await fetch(process.env.RMV_API_URL);
+    const data = await response.json();
+    console.log("RAW RESPONSE:", data);
 
-    console.log("STATUS:", response.status);
-
-    const text = await response.text();
-    console.log("RAW RESPONSE:", text);
-
-    res.status(200).json({ ok: true });
+    res.status(200).json({
+      source: "live",
+      data});
     /*const now = Date.now();
 
     // Return cached data if fresh
