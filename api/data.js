@@ -3,7 +3,7 @@ let cachtTime = 0;
 
 const CACHE_TTL = 60 * 1000; // 60 seconds
 
-module.exports = async function handler(req, res) {
+/*module.exports = async function handler(req, res) {
   try {
     const now = Date.now();
 
@@ -37,4 +37,8 @@ module.exports = async function handler(req, res) {
   } catch (err) {
     res.status(500).json({ error: "Failed to fetch data" });
   }  
+} */
+
+module.export default function handler(req, res) {
+  res.status(200).json({ ok: true });
 }
