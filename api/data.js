@@ -18,6 +18,11 @@ module.exports = async function handler(req, res) {
     // Fetch fresh data
     const url = process.env.RMV_API_URL;
     console.log("URL:", url);
+
+    if (!process.env.SHEETS_API_URL) {
+      throw new Error("Missing SHEETS_API_URL");
+    }
+    
     const response = await fetch(process.env.RMV_API_URL);
     const data = await response.json();
 
