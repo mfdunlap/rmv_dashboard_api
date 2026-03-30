@@ -16,7 +16,7 @@ module.exports = async function handler(req, res) {
     }
 
     // Fetch fresh data
-    const url = process.env.SHEETS_API_URL;
+    const url = process.env.RMV_API_URL;
     console.log("URL:", url);
     const response = await fetch(process.env.RMV_API_URL);
     const data = await response.json();
