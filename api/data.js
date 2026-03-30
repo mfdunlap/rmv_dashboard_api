@@ -23,9 +23,10 @@ module.exports = async function handler(req, res) {
     cache = data;
     cacheTime = now;
     
-    res.status(200).json(
+    res.status(200).json({
       source: "live",
-      data);
+      data
+    });
   } catch (err) {
     res.status(500).json({ error: "Failed to fetch data" });
   }  
