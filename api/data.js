@@ -3,7 +3,7 @@ let cachtTime = 0;
 
 const CACHE_TTL = 60 * 1000; // 60 seconds
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   try {
     const now = Date.now();
 
